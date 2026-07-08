@@ -64,7 +64,7 @@ export default function App() {
               <img
                 src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/SW.webp"
                 alt="Sabrina White Horse Barnett"
-                className="w-full h-auto aspect-square object-cover rounded-[50px_8px_50px_8px] group-hover:scale-102 transition-transform duration-500"
+                className="w-full h-auto aspect-[4/5] object-cover object-top rounded-[50px_8px_50px_8px] group-hover:scale-102 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
               {/* Overlapping badge */}
