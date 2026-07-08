@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-sage: #7B9E87;
+  --color-sand: #E8DCC6;
+  --color-gold: #C9A66B;
+  --color-ivory: #FAF9F6;
+  --color-charcoal: #333333;
+}
+
+/* Custom styles and helper classes */
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-charcoal);
+  }
+}
+
+/* Smooth typing indicator animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+/* Custom scrollbar to match the high-end feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2DFD2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}

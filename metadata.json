@@ -1,0 +1,6 @@
+{
+  "name": "Sabrina White Horse Healing",
+  "description": "Transformational healing and personal growth website for Sabrina White Horse, located in Loxahatchee, FL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
