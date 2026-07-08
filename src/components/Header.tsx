@@ -106,7 +106,7 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
         >
           <div className="h-10 md:h-12 w-auto overflow-hidden rounded-lg bg-white p-1 border border-sand/30 shadow-sm group-hover:border-sage/50 transition-all duration-300">
             <img
-              src="/src/assets/images/native_wisdom_logo_1783534360537.jpg"
+              src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/Sabrina%20Whitehorse.jpg"
               alt="Native Wisdom Logo"
               className="h-full w-auto object-contain"
               referrerPolicy="no-referrer"
