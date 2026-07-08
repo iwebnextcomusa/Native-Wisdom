@@ -37,7 +37,7 @@ export default function Hero({ onOpenCourses }: HeroProps) {
           className="absolute inset-0 w-full h-full object-cover scale-105"
           poster="/src/assets/images/wellness_hero_bg_1783531946502.jpg"
         >
-          <source src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/Sabrina%20Whitehorse.mp4" type="video/mp4" />
+          <source src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/NW.mp4" type="video/mp4" />
           {/* Fallback image */}
           <img
             src="/src/assets/images/wellness_hero_bg_1783531946502.jpg"

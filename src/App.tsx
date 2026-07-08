@@ -62,7 +62,7 @@ export default function App() {
             <div className="absolute -inset-3 bg-gradient-to-tr from-sage/10 to-gold/10 rounded-[64px_12px_64px_12px] blur-md"></div>
             <div className="relative bg-[#FAF9F6] p-4 rounded-[60px_10px_60px_10px] border border-sand shadow-sm overflow-hidden group">
               <img
-                src="/src/assets/images/sabrina_portrait_1783532021551.jpg"
+                src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/SW.webp"
                 alt="Sabrina White Horse Barnett"
                 className="w-full h-auto aspect-square object-cover rounded-[50px_8px_50px_8px] group-hover:scale-102 transition-transform duration-500"
                 referrerPolicy="no-referrer"
@@ -258,7 +258,7 @@ export default function App() {
             <div className="flex items-center gap-3">
               <div className="h-10 w-auto overflow-hidden rounded-lg bg-white p-1 border border-sand/30 shadow-sm">
                 <img
-                  src="/src/assets/images/native_wisdom_logo_1783534360537.jpg"
+                  src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/Sabrina%20Whitehorse.jpg"
                   alt="Native Wisdom Logo"
                   className="h-full w-auto object-contain"
                   referrerPolicy="no-referrer"
