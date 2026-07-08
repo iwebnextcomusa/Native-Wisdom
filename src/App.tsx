@@ -9,6 +9,7 @@ import ContactForm from "./components/ContactForm";
 import Chatbot from "./components/Chatbot";
 import CoursesPage from "./components/CoursesPage";
 import ResourcesPage from "./components/ResourcesPage";
+import ScrollReveal from "./components/ScrollReveal";
 import { ArrowUp, Trees, Compass, Heart, Award, ArrowRight, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export default function App() {
@@ -57,7 +58,7 @@ export default function App() {
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* About Image / Grid */}
-          <div className="lg:col-span-5 relative" id="about-image-container">
+          <ScrollReveal direction="up" className="lg:col-span-5 relative" id="about-image-container">
             <div className="absolute -inset-3 bg-gradient-to-tr from-sage/10 to-gold/10 rounded-[64px_12px_64px_12px] blur-md"></div>
             <div className="relative bg-[#FAF9F6] p-4 rounded-[60px_10px_60px_10px] border border-sand shadow-sm overflow-hidden group">
               <img
@@ -77,10 +78,10 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* About Copy Text */}
-          <div className="lg:col-span-7 space-y-8 text-left" id="about-copy-container">
+          <ScrollReveal direction="up" delay={150} className="lg:col-span-7 space-y-8 text-left" id="about-copy-container">
             <div className="space-y-3">
               <span className="text-xs font-mono text-sage tracking-[0.2em] uppercase font-bold block">
                 Meet Sabrina White Horse
@@ -121,76 +122,92 @@ export default function App() {
                 <span>FL Sanctuary and Virtual</span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 4. Services Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto" id="services">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
-            Transformational Offerings
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
-            Nurturing Services for <span className="font-serif italic font-normal text-sage">Mastery & Well-Being</span>
-          </h2>
-          <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
-            Each offering is tailored to provide a compassionate, safe environment where your unique emotional, mental, and spiritual aspects are integrated, respected, and fully healed.
-          </p>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
+              Transformational Offerings
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
+              Nurturing Services for <span className="font-serif italic font-normal text-sage">Mastery & Well-Being</span>
+            </h2>
+            <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
+              Each offering is tailored to provide a compassionate, safe environment where your unique emotional, mental, and spiritual aspects are integrated, respected, and fully healed.
+            </p>
+          </div>
+        </ScrollReveal>
         
-        <Services />
+        <ScrollReveal direction="up" delay={200}>
+          <Services />
+        </ScrollReveal>
       </section>
 
       {/* 5. Why Choose Section */}
       <section className="py-24 px-6 bg-white/40 border-y border-sand/20" id="why-choose">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
-              The Path to Mastery
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
-              Why Walk with <span className="font-serif italic font-normal text-sage">Sabrina White Horse</span>
-            </h2>
-            <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
-              We focus on a comprehensive, high-end wellness blueprint that empowers you with actual techniques and compassionate guidance for long-term emotional sovereignty.
-            </p>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+              <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
+                The Path to Mastery
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
+                Why Walk with <span className="font-serif italic font-normal text-sage">Sabrina White Horse</span>
+              </h2>
+              <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
+                We focus on a comprehensive, high-end wellness blueprint that empowers you with actual techniques and compassionate guidance for long-term emotional sovereignty.
+              </p>
+            </div>
+          </ScrollReveal>
           
-          <WhyChoose />
+          <ScrollReveal direction="up" delay={200}>
+            <WhyChoose />
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 6. Journey Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto" id="journey">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
-            The Transformation Steps
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
-            Your Journey of <span className="font-serif italic font-normal text-sage">Awakening & Alignment</span>
-          </h2>
-          <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
-            We simplify spiritual and emotional mastery into four grounded, beautiful phases. Follow this timeline to unlock your deepest connection and thriving potential.
-          </p>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
+              The Transformation Steps
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
+              Your Journey of <span className="font-serif italic font-normal text-sage">Awakening & Alignment</span>
+            </h2>
+            <p className="text-sm font-sans text-charcoal/70 leading-relaxed max-w-2xl mx-auto font-light">
+              We simplify spiritual and emotional mastery into four grounded, beautiful phases. Follow this timeline to unlock your deepest connection and thriving potential.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <Journey />
+        <ScrollReveal direction="up" delay={200}>
+          <Journey />
+        </ScrollReveal>
       </section>
 
       {/* 7. Testimonials Section */}
       <section className="py-24 px-6 bg-[#E8DCC6]/10 border-y border-sand/20" id="testimonials">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
-              Tribe Experiences
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
-              Voices of <span className="font-serif italic font-normal text-sage">Healing & Empowerment</span>
-            </h2>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+              <span className="text-xs font-mono text-sage tracking-[0.25em] uppercase font-bold block">
+                Tribe Experiences
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-charcoal leading-tight">
+                Voices of <span className="font-serif italic font-normal text-sage">Healing & Empowerment</span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
-          <TestimonialSlider />
+          <ScrollReveal direction="up" delay={200}>
+            <TestimonialSlider />
+          </ScrollReveal>
         </div>
       </section>
 
@@ -200,7 +217,7 @@ export default function App() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#C9A66B]/20 rounded-full blur-3xl"></div>
 
-        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+        <ScrollReveal direction="fade" className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           <div className="inline-flex bg-white/15 p-3 rounded-full text-white/95">
             <Heart className="w-6 h-6" />
           </div>
@@ -223,12 +240,14 @@ export default function App() {
             <span>Schedule Your Session</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 10. Contact Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto" id="contact">
-        <ContactForm />
+        <ScrollReveal direction="up">
+          <ContactForm />
+        </ScrollReveal>
       </section>
 
       {/* 11. Footer */}

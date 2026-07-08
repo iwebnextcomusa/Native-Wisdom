@@ -1,11 +1,14 @@
-import React from "react";
-import { Sparkles, Calendar, BookOpen, Compass } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Sparkles, Calendar, BookOpen, Volume2, VolumeX } from "lucide-react";
 
 interface HeroProps {
   onOpenCourses: () => void;
 }
 
 export default function Hero({ onOpenCourses }: HeroProps) {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const handleScrollTo = (id: string) => {
     const el = document.querySelector(id);
     if (el) {
@@ -13,19 +16,61 @@ export default function Hero({ onOpenCourses }: HeroProps) {
     }
   };
 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      const newMuted = !videoRef.current.muted;
+      videoRef.current.muted = newMuted;
+      setIsMuted(newMuted);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-6 font-sans" id="hero-section">
-      {/* Background Image with elegant overlay */}
+      {/* Background Video or Image with elegant overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/src/assets/images/wellness_hero_bg_1783531946502.jpg"
-          alt="Calming Natural Sanctuary"
-          className="w-full h-full object-cover scale-105 animate-pulse-slow"
-          referrerPolicy="no-referrer"
-          loading="eager"
-        />
-        {/* Soft linear and radial gradients to blend the image beautifully */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ivory/95 via-ivory/80 to-ivory"></div>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+          poster="/src/assets/images/wellness_hero_bg_1783531946502.jpg"
+        >
+          <source src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/Sabrina%20Whitehorse.mp4" type="video/mp4" />
+          {/* Fallback image */}
+          <img
+            src="/src/assets/images/wellness_hero_bg_1783531946502.jpg"
+            alt="Calming Natural Sanctuary"
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+            loading="eager"
+          />
+        </video>
+        {/* Soft linear and radial gradients to blend the background video beautifully with the site aesthetics */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/65 via-[#FAF9F6]/50 to-[#FAF9F6]/75"></div>
+      </div>
+
+      {/* Video Volume Control Toggle */}
+      <div className="absolute bottom-6 right-6 z-20" id="video-sound-control">
+        <button
+          onClick={toggleMute}
+          className="flex items-center gap-2 bg-white/70 hover:bg-white/95 text-charcoal backdrop-blur-md border border-sand/40 px-3.5 py-2 rounded-full shadow-md text-xs font-medium uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer"
+          title={isMuted ? "Unmute sound" : "Mute sound"}
+          aria-label={isMuted ? "Unmute background video sound" : "Mute background video sound"}
+        >
+          {isMuted ? (
+            <>
+              <VolumeX className="w-4 h-4 text-sage" />
+              <span>Unmute Video</span>
+            </>
+          ) : (
+            <>
+              <Volume2 className="w-4 h-4 text-sage animate-bounce-subtle" />
+              <span>Mute Video</span>
+            </>
+          )}
+        </button>
       </div>
 
       {/* Floating decorative elements */}
