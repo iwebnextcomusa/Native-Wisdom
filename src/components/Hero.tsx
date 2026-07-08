@@ -25,7 +25,7 @@ export default function Hero({ onOpenCourses }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-6 font-sans" id="hero-section">
+    <section className="relative min-h-[calc(100vh-76px)] flex items-center justify-center overflow-hidden py-16 px-6 font-sans" id="hero-section">
       {/* Background Video or Image with elegant overlay */}
       <div className="absolute inset-0 z-0">
         <video

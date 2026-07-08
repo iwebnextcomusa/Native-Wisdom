@@ -89,10 +89,10 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 font-sans ${
+      className={`sticky top-0 inset-x-0 z-40 transition-all duration-300 font-sans bg-[#FAF9F6] border-b border-sand/30 shadow-sm ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm py-4 border-b border-sand/30"
-          : "bg-transparent py-6"
+          ? "py-3"
+          : "py-4"
       }`}
       id="main-app-header"
     >
