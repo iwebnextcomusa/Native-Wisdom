@@ -2,10 +2,11 @@ import React, { useState, useRef } from "react";
 import { Sparkles, Calendar, BookOpen, Volume2, VolumeX } from "lucide-react";
 
 interface HeroProps {
+  onNavigate: (page: "home" | "about" | "services" | "affiliate" | "contact" | "courses" | "resources") => void;
   onOpenCourses: () => void;
 }
 
-export default function Hero({ onOpenCourses }: HeroProps) {
+export default function Hero({ onNavigate, onOpenCourses }: HeroProps) {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -101,7 +102,7 @@ export default function Hero({ onOpenCourses }: HeroProps) {
         {/* Call To Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
           <button
-            onClick={() => handleScrollTo("#contact")}
+            onClick={() => onNavigate("contact")}
             className="bg-sage hover:bg-[#6a8b75] text-white font-semibold uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-lg shadow-[#7B9E87]/20 hover:scale-105 transition-all flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer"
             id="hero-cta-booking"
           >
@@ -110,7 +111,7 @@ export default function Hero({ onOpenCourses }: HeroProps) {
           </button>
           
           <button
-            onClick={onOpenCourses}
+            onClick={() => onNavigate("courses")}
             className="border-2 border-gold text-gold hover:bg-gold hover:text-white font-semibold uppercase tracking-wider text-xs px-8 py-4 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 bg-transparent w-full sm:w-auto cursor-pointer"
             id="hero-cta-courses"
           >

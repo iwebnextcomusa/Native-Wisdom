@@ -102,7 +102,7 @@ export default function ContactForm() {
                 </div>
               </div>
               <p className="font-serif text-sm font-semibold text-charcoal mt-2 drop-shadow-sm bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-sand/30">
-                Sabrina White Horse
+                Sabrina Whitehorse
               </p>
             </div>
 

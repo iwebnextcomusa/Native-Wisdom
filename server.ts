@@ -54,6 +54,8 @@ app.post("/api/chat", async (req, res) => {
       reply = "Sabrina is located in Loxahatchee, Florida. You can reach out via email at sbarnettloves@gmail.com or by calling 561-801-0150. You can also fill out the contact form below!";
     } else if (lastUserMessage.includes("price") || lastUserMessage.includes("cost")) {
       reply = "We offer tailored transformational plans. For specific session pricing and customized packages, please complete our contact form with your goals, and Sabrina will connect with you to discuss the options.";
+    } else if (lastUserMessage.includes("product") || lastUserMessage.includes("sacred earth") || lastUserMessage.includes("detergent") || lastUserMessage.includes("shampoo") || lastUserMessage.includes("wash") || lastUserMessage.includes("affiliate")) {
+      reply = "Sabrina has partnered with Sacred Earth to offer 100% organic, natural, chemical-free home and personal care products! These include natural liquid detergent, dish wash, floor wash, and personal care products like face wash, hand wash, and Ayurvedic hair cleanser. Scroll down to the 'Sacred Earth Organic Sanctuary' section (formerly Testimonials) on the main page to explore them or find your perfect fit using our interactive Wellness Matcher quiz!";
     }
     
     return res.json({ text: reply });
@@ -69,6 +71,7 @@ app.post("/api/chat", async (req, res) => {
       - Transformational Healing Sessions (1-on-1, focused on emotional balance, personal growth, spiritual/emotional mastery, and unlocking potential).
       - Online Courses (deep self-paced courses for emotional awareness and spiritual development).
       - Personal Growth Resources (downloadable guides, educational articles, and videos).
+      - Sacred Earth Partnership: Sabrina partners with Sacred Earth (www.sacredearth.in) to offer organic, 100% natural, chemical-free home care (Liquid Detergent, Dish Wash, Floor Wash) and personal care (Hand Wash, Face Wash, Ayurvedic Hair Cleanser / Shampoo) products. They are powered by natural cleaning agents like Soapnuts (Reetha) and pure essential oils. Encourage users to check out the "Sacred Earth Organic Sanctuary" section and use the interactive Wellness Matcher quiz to find their perfect product.
       - Sabrina Barnett's contact info: Phone: 561-801-0150, Email: sbarnettloves@gmail.com, Location: Loxahatchee, Florida.
       Encourage visitors to schedule sessions and explore courses. Be helpful, gentle, and positive. Keep answers concise, highly readable, and formatted beautifully using spacing or short paragraphs.
     `;

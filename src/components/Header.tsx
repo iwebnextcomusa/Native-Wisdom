@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Compass, Mail, Heart, Phone } from "lucide-react";
 
 interface HeaderProps {
+  activePage: string;
+  onNavigate: (page: "home" | "about" | "services" | "affiliate" | "contact" | "courses" | "resources") => void;
   onOpenCourses: () => void;
   onOpenResources: () => void;
 }
 
-export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) {
+export default function Header({ activePage, onNavigate, onOpenCourses, onOpenResources }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -61,7 +63,7 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
         { name: "Tribe Wisdom Blog", action: onOpenResources, description: "Read insightful articles on healing" }
       ]
     },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Affiliate", href: "#affiliate" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -74,9 +76,25 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
     if (link.action) {
       link.action();
     } else if (link.href) {
-      const targetElement = document.querySelector(link.href);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+      const pageMap: Record<string, "home" | "about" | "services" | "affiliate" | "contact" | "courses" | "resources"> = {
+        "#about": "about",
+        "#journey": "about",
+        "#why-choose": "about",
+        "#services": "services",
+        "#affiliate": "affiliate",
+        "#contact": "contact"
+      };
+      const page = pageMap[link.href];
+      if (page) {
+        onNavigate(page);
+        if (link.href !== "#about" && link.href !== "#services" && link.href !== "#affiliate" && link.href !== "#contact") {
+          setTimeout(() => {
+            const targetElement = document.querySelector(link.href!);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 150);
+        }
       }
     }
   };
@@ -84,7 +102,7 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    onNavigate("home");
   };
 
   return (
@@ -107,11 +125,14 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
           <div className="h-10 md:h-12 w-auto overflow-hidden rounded-lg bg-white p-1 border border-sand/30 shadow-sm group-hover:border-sage/50 transition-all duration-300">
             <img
               src="https://pann5uervowoe1tt.public.blob.vercel-storage.com/Sabrina%20Whitehorse.jpg"
-              alt="Native Wisdom Logo"
+              alt="Sabrina Whitehorse"
               className="h-full w-auto object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
+          <span className="font-serif text-sm md:text-base font-bold tracking-wider text-charcoal group-hover:text-sage transition-colors uppercase">
+            Sabrina Whitehorse
+          </span>
         </a>
 
         {/* Desktop Navigation links */}
@@ -142,8 +163,24 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
                             if (sub.action) {
                               sub.action();
                             } else if (sub.href) {
-                              const target = document.querySelector(sub.href);
-                              if (target) target.scrollIntoView({ behavior: "smooth" });
+                              const pageMap: Record<string, "home" | "about" | "services" | "affiliate" | "contact" | "courses" | "resources"> = {
+                                "#about": "about",
+                                "#journey": "about",
+                                "#why-choose": "about",
+                                "#services": "services",
+                                "#affiliate": "affiliate",
+                                "#contact": "contact"
+                              };
+                              const page = pageMap[sub.href];
+                              if (page) {
+                                onNavigate(page);
+                                setTimeout(() => {
+                                  const targetElement = document.querySelector(sub.href!);
+                                  if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: "smooth" });
+                                  }
+                                }, 150);
+                              }
                             }
                           }}
                           className="block p-2.5 rounded-xl hover:bg-sand/15 transition-all text-left group/sub"
@@ -179,17 +216,13 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
 
         {/* Action Button */}
         <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="bg-sage hover:bg-[#6a8b75] text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all duration-300 hover:scale-[1.03] active:scale-95"
+          <button
+            onClick={() => onNavigate("contact")}
+            className="bg-sage hover:bg-[#6a8b75] text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm transition-all duration-300 hover:scale-[1.03] active:scale-95 cursor-pointer"
             id="header-cta-book"
           >
             Book Session
-          </a>
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -237,8 +270,24 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
                             if (sub.action) {
                               sub.action();
                             } else if (sub.href) {
-                              const target = document.querySelector(sub.href);
-                              if (target) target.scrollIntoView({ behavior: "smooth" });
+                              const pageMap: Record<string, "home" | "about" | "services" | "affiliate" | "contact" | "courses" | "resources"> = {
+                                "#about": "about",
+                                "#journey": "about",
+                                "#why-choose": "about",
+                                "#services": "services",
+                                "#affiliate": "affiliate",
+                                "#contact": "contact"
+                              };
+                              const page = pageMap[sub.href];
+                              if (page) {
+                                onNavigate(page);
+                                setTimeout(() => {
+                                  const targetElement = document.querySelector(sub.href!);
+                                  if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: "smooth" });
+                                  }
+                                }, 150);
+                              }
                             }
                           }}
                           className="text-xs font-semibold text-charcoal/70 hover:text-sage py-2 px-2 hover:bg-sand/10 rounded-lg transition-all"
@@ -261,17 +310,15 @@ export default function Header({ onOpenCourses, onOpenResources }: HeaderProps) 
             ))}
           </div>
           <div className="pt-4 border-t border-sand/30 flex flex-col gap-3">
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
+            <button
+              onClick={() => {
                 setIsOpen(false);
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                onNavigate("contact");
               }}
-              className="bg-sage hover:bg-[#6a8b75] text-white text-center py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all"
+              className="bg-sage hover:bg-[#6a8b75] text-white text-center py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer"
             >
               Schedule Your Session
-            </a>
+            </button>
             <div className="flex flex-col items-center gap-1.5 text-charcoal/50 text-[11px] py-2">
               <span className="flex items-center gap-1">
                 <Phone className="w-3.5 h-3.5 text-sage" /> 561-801-0150
